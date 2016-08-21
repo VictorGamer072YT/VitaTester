@@ -188,17 +188,17 @@ int main()
 
         /* Draw front touch on screen */
         sceTouchPeek(SCE_TOUCH_PORT_FRONT, &touch, 1);
-        if (touch.reportNum > 0) {
-            fxTouch = (lerp(touch.report[0].x, 1919, 960) - 50);
-            fyTouch = (lerp(touch.report[0].y, 1087, 544) - 56);
+        for (int i = 0; i < touch.reportNum; i++) {
+            fxTouch = (lerp(touch.report[i].x, 1919, 960) - 50);
+            fyTouch = (lerp(touch.report[i].y, 1087, 544) - 56);
             vita2d_draw_texture(frontTouch, fxTouch, fyTouch);
         }
 
         /* Draw rear touch on screen */
         sceTouchPeek(SCE_TOUCH_PORT_BACK, &touch, 1);
-        if (touch.reportNum > 0) {
-            bxTouch = (lerp(touch.report[0].x, 1919, 960) - 50);
-            byTouch = (lerp(touch.report[0].y, 1087, 544) - 56);
+        for (int i = 0; i < touch.reportNum; i++) {
+            bxTouch = (lerp(touch.report[i].x, 1919, 960) - 50);
+            byTouch = (lerp(touch.report[i].y, 1087, 544) - 56);
             vita2d_draw_texture(backTouch, bxTouch, byTouch);
         }
 
