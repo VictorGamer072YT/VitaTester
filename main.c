@@ -12,21 +12,6 @@
 extern unsigned int basicfont_size;
 extern unsigned char basicfont[];
 
-/* Image buffers */
-extern unsigned char background[];
-extern unsigned char ctrl_cross[];
-extern unsigned char ctrl_circle[];
-extern unsigned char ctrl_square[];
-extern unsigned char ctrl_triangle[];
-extern unsigned char ctrl_select[];
-extern unsigned char ctrl_start[];
-extern unsigned char ctrl_ltrigger[];
-extern unsigned char ctrl_rtrigger[];
-extern unsigned char ctrl_analog[];
-extern unsigned char ctrl_dpad[];
-extern unsigned char finger_gray[];
-extern unsigned char finger_blue[];
-
 SceCtrlData     pad;
 SceTouchData    touch;
 
@@ -66,19 +51,19 @@ int main()
     vita2d_font *font = vita2d_load_font_mem(basicfont, basicfont_size);
 
     /* Setup image buffers */
-    vita2d_texture *bg = vita2d_load_PNG_buffer(background);
-    vita2d_texture *cross = vita2d_load_PNG_buffer(ctrl_cross);
-    vita2d_texture *circle = vita2d_load_PNG_buffer(ctrl_circle);
-    vita2d_texture *square = vita2d_load_PNG_buffer(ctrl_square);
-    vita2d_texture *triangle = vita2d_load_PNG_buffer(ctrl_triangle);
-    vita2d_texture *select = vita2d_load_PNG_buffer(ctrl_select);
-    vita2d_texture *start = vita2d_load_PNG_buffer(ctrl_start);
-    vita2d_texture *ltrigger = vita2d_load_PNG_buffer(ctrl_ltrigger);
-    vita2d_texture *rtrigger = vita2d_load_PNG_buffer(ctrl_rtrigger);
-    vita2d_texture *analog = vita2d_load_PNG_buffer(ctrl_analog);
-    vita2d_texture *dpad = vita2d_load_PNG_buffer(ctrl_dpad);
-    vita2d_texture *frontTouch = vita2d_load_PNG_buffer(finger_gray);
-    vita2d_texture *backTouch = vita2d_load_PNG_buffer(finger_blue);
+    vita2d_texture *bg = vita2d_load_PNG_file("app0:/icons/background.png");
+    vita2d_texture *cross = vita2d_load_PNG_file("app0:/icons/cross.png");
+    vita2d_texture *circle = vita2d_load_PNG_file("app0:/icons/circle.png");
+    vita2d_texture *square = vita2d_load_PNG_file("app0:/icons/square.png");
+    vita2d_texture *triangle = vita2d_load_PNG_file("app0:/icons/triangle.png");
+    vita2d_texture *select = vita2d_load_PNG_file("app0:/icons/select.png");
+    vita2d_texture *start = vita2d_load_PNG_file("app0:/icons/start.png");
+    vita2d_texture *ltrigger = vita2d_load_PNG_file("app0:/icons/ltrigger.png");
+    vita2d_texture *rtrigger = vita2d_load_PNG_file("app0:/icons/rtrigger.png");
+    vita2d_texture *analog = vita2d_load_PNG_file("app0:/icons/analog.png");
+    vita2d_texture *dpad = vita2d_load_PNG_file("app0:/icons/dpad.png");
+    vita2d_texture *frontTouch = vita2d_load_PNG_file("app0:/icons/finger_gray.png");
+    vita2d_texture *backTouch = vita2d_load_PNG_file("app0:/icons/finger_blue.png");
 
     while (1) {
         sceCtrlPeekBufferPositive(0, &pad, 1);

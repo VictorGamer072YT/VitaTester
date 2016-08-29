@@ -1,11 +1,9 @@
 TITLE_ID = VITATESTR
 TARGET = VitaTester
-OBJS   = icons/background.o icons/cross.o icons/circle.o icons/square.o icons/triangle.o \
-    icons/select.o icons/start.o icons/ltrigger.o icons/rtrigger.o icons/analog.o icons/dpad.o \
-    icons/finger_blue.o icons/finger_gray.o font.o main.o
+OBJS   = font.o main.o
 
-LIBS = -lvita2d -lSceDisplay_stub -lSceGxm_stub -lSceCommonDialog_stub \
-	-lSceCtrl_stub -lSceTouch_stub -lSceSysmodule_stub -lfreetype -lpng -lz -lm
+LIBS = -lvita2d -lSceDisplay_stub -lSceGxm_stub -lSceCommonDialog_stub -lSceCtrl_stub \
+	-lSceTouch_stub -lSceSysmodule_stub -lfreetype -lpng -lz -lm
 
 PREFIX  = arm-vita-eabi
 CC      = $(PREFIX)-gcc
@@ -16,7 +14,14 @@ all: $(TARGET).vpk
 
 %.vpk: eboot.bin
 	vita-mksfoex -s TITLE_ID=$(TITLE_ID) "$(TARGET)" param.sfo
-	vita-pack-vpk -s param.sfo -b eboot.bin $@
+	vita-pack-vpk -s param.sfo -b eboot.bin \
+	-a icons/analog.png=icons/analog.png -a icons/background.png=icons/background.png \
+	-a icons/circle.png=icons/circle.png -a icons/cross.png=icons/cross.png \
+	-a icons/dpad.png=icons/dpad.png -a icons/finger_blue.png=icons/finger_blue.png \
+	-a icons/finger_gray.png=icons/finger_gray.png -a icons/ltrigger.png=icons/ltrigger.png \
+	-a icons/rtrigger.png=icons/rtrigger.png -a icons/select.png=icons/select.png \
+	-a icons/square.png=icons/square.png -a icons/start.png=icons/start.png \
+	-a icons/triangle.png=icons/triangle.png $@
 
 eboot.bin: $(TARGET).velf
 	vita-make-fself -s $< eboot.bin
