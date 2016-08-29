@@ -81,8 +81,6 @@ int main()
     vita2d_texture *backTouch = vita2d_load_PNG_buffer(finger_blue);
 
     while (1) {
-	sceKernelPowerTick(0);
-
         sceCtrlPeekBufferPositive(0, &pad, 1);
 
         if (pad.buttons == EXIT_COMBO) { break; }
@@ -94,11 +92,11 @@ int main()
         vita2d_draw_texture(bg, 0, 54);
 
         /* Display infos */
-        vita2d_font_draw_text(font, 10, 10, WHITE, 25, "VitaTester by SMOKE v1.2");
-        vita2d_font_draw_text(font, 650, 10, WHITE, 25, "Press Start + Select to exit");
+        vita2d_font_draw_text(font, 10, 20, WHITE, 25, "VitaTester by SMOKE");
+        vita2d_font_draw_text(font, 650, 20, WHITE, 25, "Press Start + Select to exit");
 
-        vita2d_font_draw_textf(font, 10, 500, WHITE, 25, "Left: ( %3d, %3d )", pad.lx, pad.ly);
-        vita2d_font_draw_textf(font, 780, 500, WHITE, 25, "Right: ( %3d, %3d )", pad.rx, pad.ry);
+        vita2d_font_draw_textf(font, 10, 525, WHITE, 25, "Left: ( %3d, %3d )", pad.lx, pad.ly);
+        vita2d_font_draw_textf(font, 780, 525, WHITE, 25, "Right: ( %3d, %3d )", pad.rx, pad.ry);
 
         /* Update joystick values */
         lx = (signed char)pad.lx - 128;

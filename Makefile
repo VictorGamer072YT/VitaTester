@@ -19,7 +19,7 @@ all: $(TARGET).vpk
 	vita-pack-vpk -s param.sfo -b eboot.bin $@
 
 eboot.bin: $(TARGET).velf
-	vita-make-fself $< eboot.bin
+	vita-make-fself -s $< eboot.bin
 
 %.velf: %.elf
 	vita-elf-create $< $@
@@ -29,3 +29,11 @@ eboot.bin: $(TARGET).velf
 
 clean:
 	@rm -rf *.velf *.elf *.vpk $(OBJS) param.sfo eboot.bin
+
+vpksend: $(TARGET).vpk
+	curl -T $(TARGET).vpk ftp://$(PSVITAIP):1337/ux0:/
+	@echo "Sent."
+
+send: eboot.bin
+	curl -T eboot.bin ftp://$(PSVITAIP):1337/ux0:/app/$(TITLE_ID)/
+	@echo "Sent."
