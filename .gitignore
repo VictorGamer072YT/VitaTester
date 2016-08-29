@@ -2,3 +2,6 @@
 *.elf
 *.velf
 *.log
+*.vpk
+eboot.bin
+param.sfo

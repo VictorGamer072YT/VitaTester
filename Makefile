@@ -2,7 +2,7 @@ TITLE_ID = VITATESTR
 TARGET = VitaTester
 OBJS   = font.o main.o
 
-LIBS = -lvita2d -lSceDisplay_stub -lSceGxm_stub -lSceCommonDialog_stub -lSceCtrl_stub \
+LIBS = -lvita2d -lSceDisplay_stub -lSceGxm_stub -lSceCtrl_stub \
 	-lSceTouch_stub -lSceSysmodule_stub -lfreetype -lpng -lz -lm
 
 PREFIX  = arm-vita-eabi
