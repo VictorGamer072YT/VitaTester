@@ -39,15 +39,8 @@ int byTouch;
 #define RED     RGBA8(255,   0,   0, 255)
 #define BLUE    RGBA8(  0,   0, 255, 255)
 
-int main()
+int thread()
 {
-    vita2d_init();
-    vita2d_set_clear_color(BLACK);
-
-    sceCtrlSetSamplingMode(SCE_CTRL_MODE_ANALOG_WIDE);
-    sceTouchSetSamplingState(SCE_TOUCH_PORT_FRONT, 1);
-    sceTouchSetSamplingState(SCE_TOUCH_PORT_BACK, 1);
-
     vita2d_font *font = vita2d_load_font_mem(basicfont, basicfont_size);
 
     /* Setup image buffers */
@@ -206,6 +199,22 @@ int main()
     vita2d_free_texture(dpad);
     vita2d_free_texture(frontTouch);
     vita2d_free_texture(backTouch);
+
+    return 0;
+}
+
+int main()
+{
+    vita2d_init();
+    vita2d_set_clear_color(BLACK);
+
+    sceCtrlSetSamplingMode(SCE_CTRL_MODE_ANALOG_WIDE);
+    sceTouchSetSamplingState(SCE_TOUCH_PORT_FRONT, 1);
+    sceTouchSetSamplingState(SCE_TOUCH_PORT_BACK, 1);
+
+    SceUID thid = sceKernelCreateThread("thread", thread, 0x10000100, 0x10000, 0, 0, NULL);
+    sceKernelStartThread(thid, 0, NULL);
+    sceKernelWaitThreadEnd(thid, NULL, NULL);    
 
 	sceKernelExitProcess(0);
 

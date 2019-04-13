@@ -3,7 +3,7 @@ TARGET = VitaTester
 OBJS   = font.o main.o
 
 LIBS = -lvita2d -lSceDisplay_stub -lSceGxm_stub -lSceCtrl_stub \
-	-lSceTouch_stub -lSceSysmodule_stub -lfreetype -lpng -lz -lm
+	-lSceTouch_stub -lSceSysmodule_stub -lSceCommonDialog_stub -lfreetype -lpng -lz -lm
 
 PREFIX  = arm-vita-eabi
 CC      = $(PREFIX)-gcc
