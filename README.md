@@ -17,6 +17,7 @@ Other ideas:
 - Show the player id (assuming DS3/DS4)
 - Test the rumble motors in the DS3/DS4 (Slider for the right (heavy) motor, button for the left (light) motor)
 - Show if the Volume Up/Down buttons are pressed (system privileges)
+- Remove `font.c` and load the font from a font file.
 
 ## Extra Credits
 

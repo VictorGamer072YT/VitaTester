@@ -78,21 +78,22 @@ vita_create_vpk(${PROJECT_NAME}.vpk ${VITA_TITLEID} ${PROJECT_NAME}.self
   VERSION ${VITA_VERSION}
   NAME ${VITA_APP_NAME}
   # Have to create these later.
-  #FILE sce_sys/icon0.png sce_sys/icon0.png
-  #FILE sce_sys/livearea/contents/bg.png sce_sys/livearea/contents/bg.png
-  #FILE sce_sys/livearea/contents/startup.png sce_sys/livearea/contents/startup.png
-  #FILE sce_sys/livearea/contents/template.xml sce_sys/livearea/contents/template.xml
-  FILE src/icons/analog.png         icons/analog.png
-  FILE src/icons/background.png     icons/background.png
-  FILE src/icons/circle.png         icons/circle.png
-  FILE src/icons/cross.png          icons/cross.png
-  FILE src/icons/dpad.png           icons/dpad.png
-  FILE src/icons/finger_blue.png    icons/finger_blue.png
-  FILE src/icons/finger_gray.png    icons/finger_gray.png
-  FILE src/icons/ltrigger.png       icons/ltrigger.png
-  FILE src/icons/rtrigger.png       icons/rtrigger.png
-  FILE src/icons/select.png         icons/select.png
-  FILE src/icons/square.png         icons/square.png
-  FILE src/icons/start.png          icons/start.png
-  FILE src/icons/triangle.png       icons/triangle.png
+  # Take them from the 'pretty_livearea' sample?
+  #FILE resources/sce_sys/icon0.png sce_sys/icon0.png
+  #FILE resources/sce_sys/livearea/contents/bg.png sce_sys/livearea/contents/bg.png
+  #FILE resources/sce_sys/livearea/contents/startup.png sce_sys/livearea/contents/startup.png
+  #FILE resources/sce_sys/livearea/contents/template.xml sce_sys/livearea/contents/template.xml
+  FILE resources/icons/analog.png         icons/analog.png
+  FILE resources/icons/background.png     icons/background.png
+  FILE resources/icons/circle.png         icons/circle.png
+  FILE resources/icons/cross.png          icons/cross.png
+  FILE resources/icons/dpad.png           icons/dpad.png
+  FILE resources/icons/finger_blue.png    icons/finger_blue.png
+  FILE resources/icons/finger_gray.png    icons/finger_gray.png
+  FILE resources/icons/ltrigger.png       icons/ltrigger.png
+  FILE resources/icons/rtrigger.png       icons/rtrigger.png
+  FILE resources/icons/select.png         icons/select.png
+  FILE resources/icons/square.png         icons/square.png
+  FILE resources/icons/start.png          icons/start.png
+  FILE resources/icons/triangle.png       icons/triangle.png
 )
